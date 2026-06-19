@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
-const WS_URL = 'ws://localhost:3001';
+const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:3001';
+const WS_URL = API_BASE.replace(/^http/, 'ws');
 const RECONNECT_DELAYS = [1000, 2000, 4000, 8000, 16000]; // Exponential backoff
 
 export function useWebSocket(userId, username, color) {
