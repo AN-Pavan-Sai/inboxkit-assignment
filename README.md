@@ -1,10 +1,10 @@
-# ⚔️ GridWars — Real-Time Shared Grid
+# GridWars — Real-Time Shared Grid
 
 A multiplayer territory control game where users claim tiles on a shared 50×50 grid. All changes sync instantly via WebSockets across all connected clients.
 
 ![GridWars](https://img.shields.io/badge/Status-Live-brightgreen) ![React](https://img.shields.io/badge/React-18-blue) ![Express](https://img.shields.io/badge/Express-4-lightgrey) ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-16-blue) ![WebSocket](https://img.shields.io/badge/WebSocket-ws-orange)
 
-## 🎮 Features
+## Features
 
 - **50×50 interactive grid** (2,500 tiles) with zoom and pan
 - **Real-time sync** — all users see updates instantly via WebSockets
@@ -18,7 +18,7 @@ A multiplayer territory control game where users claim tiles on a shared 50×50 
 - **Auto-reconnect** — WebSocket reconnects with exponential backoff
 - **No auth required** — random color assignment, lightweight user creation
 
-## 🏗️ Tech Stack
+## Tech Stack
 
 | Layer | Tech | Why |
 |-------|------|-----|
@@ -35,7 +35,7 @@ A multiplayer territory control game where users claim tiles on a shared 50×50 
 - **PostgreSQL over MongoDB**: We need transactional integrity for concurrent tile claims. `SELECT ... FOR UPDATE` row locking prevents race conditions.
 - **Vanilla CSS over Tailwind**: The UI requires custom animations (tile pulse, ripple, glow) and glassmorphism effects that are easier to control directly.
 
-## 🚀 Setup
+## Setup
 
 ### Prerequisites
 - Node.js 18+
@@ -68,7 +68,7 @@ npm run dev       # Starts on port 5173
 
 Navigate to `http://localhost:5173` — open multiple tabs to test real-time sync!
 
-## 🏛️ Architecture
+## Architecture
 
 ```
 Client (React)                     Server (Express)
@@ -92,7 +92,7 @@ Client (React)                     Server (Express)
                                   └────────────────────┘
 ```
 
-## 🔒 Conflict Resolution
+## Conflict Resolution
 
 When two users try to claim the same tile simultaneously:
 
@@ -102,7 +102,7 @@ When two users try to claim the same tile simultaneously:
 4. First transaction wins, second waits then processes
 5. Both users see the correct final state
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 ├── client/                # React frontend (Vite)
